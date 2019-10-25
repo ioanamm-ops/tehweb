@@ -1,0 +1,45 @@
+
+
+//distance calculation
+
+function distance (array1, array2) {
+    var temp = [];
+    array1 = array1.toString().split(',').map(Number);
+    array2 = array2.toString().split(',').map(Number);
+    
+    for (var i in array1) {
+    if(array2.indexOf(array1[i]) === -1) temp.push(array1[i]);
+    }
+    for(i in array2) {
+    if(array1.indexOf(array2[i]) === -1) temp.push(array2[i]);
+    }
+    return temp.sort((a,b) => a-b);
+    }
+    
+    console.log(distance([15, 72, 3], [100, 26, 13, 10]));
+    console.log(distance([15, 72, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+    
+//remove duplicates in an array
+function remove_duplicates(arr) {
+    var seen = {};
+    var ret_arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!(arr[i] in seen)) {
+            ret_arr.push(arr[i]);
+            seen[arr[i]] = true;
+        }
+    }
+    return ret_arr;
+
+}
+
+//check if an array is empty or not
+function isEmpty(array1, array2) {
+    for(var key in array1, array2) {
+        if(array1.hasOwnProperty(key) && array2.hasOwnProperty(key))
+            return ;
+    }
+    return true;
+
+}
+
